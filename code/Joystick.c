@@ -29,6 +29,23 @@ these buttons for our use.
 
 uint8_t target = RELEASE;
 uint16_t command;
+bool loop = false;
+
+typedef enum {
+	A,
+	NOTHING,
+} Buttons_t;
+
+typedef struct {
+	Buttons_t button;
+	uint16_t duration;
+} commands;
+
+static const commands step[] = {
+    { NOTHING,   50 },
+    { A,          5 },
+};
+
 
 void parseLine(char *line) {
 	char t[8];
@@ -46,6 +63,8 @@ void parseLine(char *line) {
 		target = RY;
 	} else if (strcasecmp(t, "HAT") == 0) {
 		target = HAT;
+    } else if (strcasecmp(t, "LOOP") == 0) {
+        loop = true;
 	} else {
 		target = RELEASE;
 	}
@@ -106,7 +125,9 @@ void parseLine(char *line) {
 			command = STICK_CENTER;
 		}
 	} else {
-		target = RELEASE;
+        if ( loop == false ){
+            target = RELEASE;
+        }
 	}
 }
 
@@ -267,6 +288,8 @@ void HID_Task(void) {
 	}
 }
 
+int bufindex = 0;
+int duration_count = 0;
 // Prepare the next report for the host.
 void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 	/* Clear the report contents */
@@ -278,34 +301,64 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 	ReportData->HAT = HAT_CENTER;
 	ReportData->Button |= SWITCH_RELEASE;
 
-	switch(target) {
-		case Button:
-			ReportData->Button |= command;
-			break;
-		case LX:
-			ReportData->LX = command;
-			break;
-		case LY:
-			ReportData->LY = command;
-			break;
-		case RX:
-			ReportData->RX = command;
-			break;
-		case RY:
-			ReportData->RY = command;
-			break;
-		case HAT:
-			ReportData->HAT = command;
-			break;
-		case RELEASE:
-		default:
-			ReportData->LX = STICK_CENTER;
-			ReportData->LY = STICK_CENTER;
-			ReportData->RX = STICK_CENTER;
-			ReportData->RY = STICK_CENTER;
-			ReportData->HAT = HAT_CENTER;
-			ReportData->Button |= SWITCH_RELEASE;
-			break;
-	}
+    if ( loop == false ) {
+        switch(target) {
+    		case Button:
+    			ReportData->Button |= command;
+    			break;
+    		case LX:
+    			ReportData->LX = command;
+    			break;
+    		case LY:
+    			ReportData->LY = command;
+    			break;
+    		case RX:
+    			ReportData->RX = command;
+    			break;
+    		case RY:
+    			ReportData->RY = command;
+    			break;
+    		case HAT:
+    			ReportData->HAT = command;
+    			break;
+    		case RELEASE:
+    		default:
+    			ReportData->LX = STICK_CENTER;
+    			ReportData->LY = STICK_CENTER;
+    			ReportData->RX = STICK_CENTER;
+    			ReportData->RY = STICK_CENTER;
+    			ReportData->HAT = HAT_CENTER;
+    			ReportData->Button |= SWITCH_RELEASE;
+    			break;
+    	}
+    } else {
+        switch ( step[bufindex].button )
+            {
+                case A:
+                    ReportData-> Button |= SWITCH_A;
+                    break;
+                default:
+                    ReportData->LX = STICK_CENTER;
+                    ReportData->LY = STICK_CENTER;
+                    ReportData->RX = STICK_CENTER;
+                    ReportData->RY = STICK_CENTER;
+                    ReportData->HAT = HAT_CENTER;
+                    ReportData->Button |= SWITCH_RELEASE;
+                    break;
+            }
+
+        duration_count++;
+
+        if (duration_count > step[bufindex].duration)
+        {
+            bufindex++;
+            duration_count = 0;
+        }
+
+        if (bufindex > (int)( sizeof(step) / sizeof(step[0])) - 1) {
+			bufindex = 0;
+			duration_count = 0;
+        }
+    }
 }
 // vim: noexpandtab

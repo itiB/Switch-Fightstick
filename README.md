@@ -16,6 +16,13 @@
 ## Usage
 [NintendoSwitchをPCから操作する - おいら屋ファクトリー](https://blog.feelmy.net/control-nintendo-switch-from-computer/)(in Japanese)
 
+### Features added
+
+Macro Function to press `A`.
+It works works without connection with PC
+
+`send('LOOP')`
+
 ### On MacOS
 ```sh
 brew install avr-dude osx-cross/avr/avr-gcc
