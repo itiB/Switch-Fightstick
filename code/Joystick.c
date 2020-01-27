@@ -61,6 +61,8 @@ void parseLine(char *line) {
 		target = RX;
 	} else if (strcasecmp(t, "RY") == 0) {
 		target = RY;
+	} else if (strcasecmp(t, "RXLY") == 0) {
+		target = RXLY;
 	} else if (strcasecmp(t, "HAT") == 0) {
 		target = HAT;
     } else if (strcasecmp(t, "LOOP") == 0) {
@@ -318,6 +320,10 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
     		case RY:
     			ReportData->RY = command;
     			break;
+            case RXLY:
+                ReportData->RX = STICK_MIN;
+                ReportData->LX = STICK_MAX;
+                break;
     		case HAT:
     			ReportData->HAT = command;
     			break;

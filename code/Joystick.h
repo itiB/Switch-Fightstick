@@ -94,6 +94,7 @@ typedef enum {
 	RY,
 	HAT,
 	RELEASE,
+    RXLY,
 } Target_t;
 
 // Joystick HID report structure. We have an input and an output.
