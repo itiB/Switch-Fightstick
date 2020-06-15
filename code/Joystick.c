@@ -133,6 +133,7 @@ void parseLine(char *line) {
 	}
 }
 
+// シリアル通信割り込み処理
 #define MAX_BUFFER 32
 char b[MAX_BUFFER];
 uint8_t l = 0;
@@ -142,10 +143,12 @@ ISR(USART1_RX_vect) {
 		printf("%c", c);
 	}
 	if (c == '\r') {
+        // 送られてきた文字列終了まで来たらparse
 		parseLine(b);
 		l = 0;
 		memset(b, 0, sizeof(b));
 	} else if (c != '\n' && l < MAX_BUFFER) {
+        // 送られてきた文字列をbufferに格納
 		b[l++] = c;
 	}
 }
