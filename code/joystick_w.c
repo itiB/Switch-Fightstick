@@ -65,56 +65,42 @@ static const command step[] = {
     { HOME,       5 },
     { NOTHING,   30 },
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,   10 },
     { RIGHT,      5 },
-    { NOTHING,   30 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { RIGHT,      5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { RIGHT,      5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { RIGHT,      5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { A,          5 }, // 設定選択
     { NOTHING,   30 },
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
     { NOTHING,   30 },
     { A,          5 }, // 設定>本体 選択
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { A,          5 }, // 日付と時刻選択
     { NOTHING,   30 },
     { A,          5 },
@@ -157,59 +143,46 @@ static const command step[] = {
     { NOTHING,   150 },// 待機
 
     { HOME,       5 }, // ホームへ
-    { NOTHING,   30 },
+    { NOTHING,   20 },
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { RIGHT,      5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { RIGHT,      5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { RIGHT,      5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { RIGHT,      5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { A,          5 }, // 設定選択
     { NOTHING,   30 },
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,   10 },
     { A,          5 }, // 設定>本体 選択
-    { NOTHING,   30 },
+    { NOTHING,   10 },
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { DOWN,       5 },
-    { NOTHING,   30 },
+    { NOTHING,    5 },
     { A,          5 }, // 日付と時刻選択
-    { NOTHING,   30 },
+    { NOTHING,   10 },
     { A,          5 },
     { NOTHING,   30 },
     { HOME,       5 }, // ゲームへ
