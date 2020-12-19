@@ -62,6 +62,8 @@ static const command step[] = {
     { NOTHING,    5 },
     { RIGHT,      5 },
     { NOTHING,    5 },
+    { RIGHT,      5 },
+    { NOTHING,    5 },
     { A,          5 }, // 設定選択
     { NOTHING,   50 },
     { DOWN,       5 },

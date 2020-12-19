@@ -43,17 +43,6 @@ typedef struct {
 } command;
 
 static const command step[] = {
-	// Setup controller
-    /*
-	{ NOTHING,  250 },
-	{ TRIGGERS,   5 },
-	{ NOTHING,  200 },
-	{ TRIGGERS,   5 },
-	{ NOTHING,  200 },
-	{ A,          5 },
-	{ NOTHING,  250 },
-    */
-
 	// Talk to Pondo
     { NOTHING,  100 },
 	{ A,          5 },
@@ -66,6 +55,8 @@ static const command step[] = {
     { NOTHING,   30 },
     { DOWN,       5 },
     { NOTHING,   10 },
+    { RIGHT,      5 },
+    { NOTHING,    5 },
     { RIGHT,      5 },
     { NOTHING,    5 },
     { RIGHT,      5 },
@@ -145,6 +136,8 @@ static const command step[] = {
     { HOME,       5 }, // ホームへ
     { NOTHING,   20 },
     { DOWN,       5 },
+    { NOTHING,    5 },
+    { RIGHT,      5 },
     { NOTHING,    5 },
     { RIGHT,      5 },
     { NOTHING,    5 },

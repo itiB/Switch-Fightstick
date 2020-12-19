@@ -53,63 +53,36 @@ static const command step[] = {
 
     { DOWN,       5 },
     { NOTHING,   15 },
-    // send('LY MAX', 0.1)
-    // sleep(0.3)
 
     { A,          5 }, // 話しかける
     { NOTHING,   40 },
-    // send('Button A', 0.1)
-    // sleep(1) 100で約1.2秒
-    // 1秒 -> 90
 
     { B,          5 },
     { NOTHING,   40 },
-    // send('Button B', 0.1)
-    // sleep(0.8)
 
     { UP,         5 },
     { NOTHING,   20 },
-    // send('LY MIN', 0.1)
-    // sleep(0.5)
 
     { A,          5 },
     { NOTHING,   30 },
-    // send('Button A', 0.1)
-    // sleep(0.3)
 
     { DOWN,       5 },
     { NOTHING,   20 },
-    // send('LY MAX', 0.1)
-    // sleep(0.2)
 
     { A,          5 },
     { NOTHING,   30 },
-    // send('Button A', 0.1)
-    // sleep(1)
 
     { A,          5 },  // レポートはいいいえ
     { NOTHING,   30 },
-    // send('Button A', 0.1)
-    // sleep(1.5)
     { A,          5 },
     { NOTHING,   50 },  // はいを選択
-    // send('Button A', 0.1)
-    // sleep(1)
     { A,          5 },
     { NOTHING,   60 },
 
     { A,          5 },
     { NOTHING,   20 },
-    // send('Button A', 0.1)
-    // sleep(0.5)
     { A,          5 },
-    { NOTHING, 2000 },
-    // send('Button A', 0.1)
-    // for i in range(0, sleep_time):
-    //     sleep(1)
-    //     if i % 10 == 0:
-    //         print(f'あと {sleep_time - i}秒 スリープします')
-    // // くじをひく場所
+    { NOTHING, 2500 },
 };
 
 // Main entry point.
